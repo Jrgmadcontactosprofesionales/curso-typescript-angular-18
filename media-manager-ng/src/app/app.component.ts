@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NewMediaCollectionComponent } from './components/new-media-collection/new-media-collection.component';
 import { CustomButtonDirective } from './directives/custom-button.directive';
@@ -18,6 +18,9 @@ import {
   UpperCasePipe,
 } from '@angular/common';
 import { NewBookComponent } from './components/new-book/new-book.component';
+import { BooksPageComponent } from './pages/books-page/books-page.component';
+import { AuthenticationService } from './services/authentication.service';
+import { UserType } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +43,8 @@ import { NewBookComponent } from './components/new-book/new-book.component';
     LowerCasePipe,
     UpperCasePipe,
     NewBookComponent,
-  ],
+    BooksPageComponent,
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -49,17 +53,14 @@ export class AppComponent {
   showComponent = true;
   prueba = 'valor inicial desde app component';
 
-  public someText = 'this is a test';
-  public currentDate = new Date();
-  public currentTimeInMinutes = Date.now() / 1000 / 60;
-  public discount = 0.205;
-  public jsonObject = { foo: 'bar', baz: 'qux', nested: { xyz: 3, numbers: [1, 2, 3, 4, 5] } };
-  public animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
+  private _authService = inject(AuthenticationService);
 
   constructor() {
     setTimeout(() => {
       this.prueba = 'otro valor dinamico';
     }, 3000);
+
+    this._authService.simulateLogin(UserType.Admin).subscribe();
   }
 
   public toggleComponent() {
@@ -67,14 +68,10 @@ export class AppComponent {
   }
 
   public onCollectionReload(data: unknown) {
-    console.log('AppComponent: Collection reload event received', data);
+    //console.log('AppComponent: Collection reload event received', data);
   }
 
   public onButtonHovered(isHovered: boolean) {
-    console.log('button is hovered', isHovered);
-  }
-
-  public trackByFn(index: number, _item: unknown) {
-    return index;
+    //console.log('button is hovered', isHovered);
   }
 }

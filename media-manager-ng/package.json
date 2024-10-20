@@ -9,7 +9,13 @@
     "test": "ng test",
     "format": "git diff --cached --name-only | xargs prettier --ignore-unknown --write",
     "format:all": "prettier --ignore-unknown --write .",
-    "format:verify": "prettier --ignore-unknown --check ."
+    "format:verify": "prettier --ignore-unknown --check .",
+    "mock-server": "json-server --watch ./mock/db.json --port 3000",
+    "mock-server:users": "json-server --watch ./mock/db.json --port 5000",
+    "mock-server:books": "json-server --watch ./mock/db.json --port 3000",
+    "mock-server:prod": "json-server --watch ./mock/db.json --port 2000",
+    "build:prod": "ng build --configuration production",
+    "serve:prod": "http-server ./dist/media-manager-ng/browser --p 4200"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +29,8 @@
     "@angular/platform-browser": "^18.2.5",
     "@angular/platform-browser-dynamic": "^18.2.5",
     "@angular/router": "^18.2.5",
+    "class-transformer": "^0.5.1",
+    "localforage": "^1.10.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -32,7 +40,9 @@
     "@angular/cli": "^18.2.5",
     "@angular/compiler-cli": "^18.2.5",
     "@types/jasmine": "~5.1.0",
+    "http-server": "^14.1.1",
     "jasmine-core": "~5.2.0",
+    "json-server": "^0.17.4",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",

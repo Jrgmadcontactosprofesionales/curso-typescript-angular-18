@@ -22,12 +22,12 @@ export class CustomButtonDirective implements OnInit {
 
   @HostListener('click', ['$event', '$event.srcElement'])
    public onClick(event: MouseEvent, element: HTMLButtonElement): void {
-    console.log('Button clicked!', event, element);
+    //console.log('Button clicked!', event, element);
   }
 
   @HostListener('mouseenter')
   public onMouseEnter(): void {
-    //console.log('Mouse enter!');
+    ////console.log('Mouse enter!');
     //this._elRef.nativeElement.classList.add('is-hovered');
     //this._renderer.addClass(this._elRef.nativeElement, 'is-hovered');
     this.isHovered = true;
@@ -36,7 +36,7 @@ export class CustomButtonDirective implements OnInit {
 
   @HostListener('mouseleave')
   public onMouseLeave(): void {
-    console.log('Mouse leave!');
+    //console.log('Mouse leave!');
     //this._elRef.nativeElement.classList.remove('is-hovered');
     //this._renderer.removeClass(this._elRef.nativeElement, 'is-hovered');
     this.isHovered = false;
@@ -44,7 +44,7 @@ export class CustomButtonDirective implements OnInit {
   }
 
   ngOnInit(): void {
-     console.log('appCustomButton onInit!');
+     //console.log('appCustomButton onInit!');
      // this._elRef.nativeElement.style.backgroundColor = 'red';
      /*this._elRef.nativeElement.style.borderRadius = '10px';
      this._elRef.nativeElement.style.color = 'white';

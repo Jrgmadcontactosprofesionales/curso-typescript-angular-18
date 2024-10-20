@@ -1,0 +1,25 @@
+.media-type-list {
+  width: auto;
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0;
+
+  .media-type-item {
+    flex: 1;
+    background-color: bisque;
+    border: 2px red solid;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+    padding: 0;
+
+    :hover {
+      background-color: burlywood;
+      height: 100px;
+      text-align: center;
+      align-content: center;
+      cursor: pointer;
+    }
+  }
+}

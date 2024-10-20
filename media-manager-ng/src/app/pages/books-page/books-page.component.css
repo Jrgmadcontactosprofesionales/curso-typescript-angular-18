@@ -1,0 +1,33 @@
+.media-manager-options {
+    width: auto;
+    display: flex;
+    text-align: center;
+    list-style-type: none;
+    padding-left: 0;
+  
+    .option {
+      flex: 1;
+      background-color: cornflowerblue;
+      border: 2px darkblue solid;
+      height: 2rem;
+      text-align: center;
+      align-content: center;
+      color: white;
+      font-weight: bold;
+  
+      :hover {
+        background-color: lightskyblue;
+        height: 2rem;
+        text-align: center;
+        align-content: center;
+        cursor: pointer;
+      }
+  
+      div {
+        display: flex;
+        a {
+          flex: 1;
+        }
+      }
+    }
+  }

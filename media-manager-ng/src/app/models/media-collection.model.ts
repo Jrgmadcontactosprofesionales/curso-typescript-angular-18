@@ -4,12 +4,14 @@ import { Media } from './media.model';
 export class MediaCollection<T extends Media> {
   private _identifier: string;
   private _name: string = '';
+  private _typeName: string = '';
   private _collection: ReadonlyArray<T> = [];
 
   private readonly _type: Function;
 
-  constructor(type: Function, name?: string, identifier?: string) {
+  constructor(type: Function, typeName: string, name?: string, identifier?: string) {
     this._type = type;
+    this._typeName = typeName;
 
     if (name) {
       this._name = name;
@@ -55,7 +57,7 @@ export class MediaCollection<T extends Media> {
    */
   @Expose()
   get type(): string {
-    return this._type.name.toLowerCase();
+    return this._typeName.toLowerCase();
   }
 
   @Expose()

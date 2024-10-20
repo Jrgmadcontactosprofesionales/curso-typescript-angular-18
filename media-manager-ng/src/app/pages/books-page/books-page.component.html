@@ -1,0 +1,19 @@
+<h2>Book collections</h2>
+<ul class="media-manager-options">
+  <li class="option">
+    <div>
+      <a (click)="changeView('collection-list')">Collections</a>
+    </div>
+  </li>
+  <li class="option">
+    <div>
+      <a (click)="changeView('new-collection')">New Collection</a>
+    </div>
+  </li>
+  <li class="option">
+    <div>
+      <a (click)="changeView('new-book')">New Book</a>
+    </div>
+  </li></ul>
+
+<router-outlet (activate)="onRouteActivated($event)"></router-outlet>

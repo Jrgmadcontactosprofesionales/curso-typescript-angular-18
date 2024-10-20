@@ -10,7 +10,7 @@ export class CollectionNameValidator implements AsyncValidator {
   private _breakpointobserver = inject(BreakpointObserver);
 
   validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    console.log('--- breakpointObserver', this._breakpointobserver);
+    //console.log('--- breakpointObserver', this._breakpointobserver);
     // simulamos la llamada asíncrona usando una Promise
     // En un proyecto real, esta función debería hacer una llamada a un servicio (lógica asíncrona)
     const validationPromise = new Promise<ValidationErrors | null>((resolve, _reject) => {

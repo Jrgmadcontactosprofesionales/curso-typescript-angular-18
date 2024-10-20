@@ -1,0 +1,40 @@
+<table class="collectionTable">
+  <thead>
+    <tr>
+      <td>Picture</td>
+      <td>Name</td>
+      <td>Genre</td>
+      <td>Description</td>
+      <td>Author</td>
+      <td>Pages</td>
+      <td>Remove</td>
+    </tr>
+  </thead>
+  <tbody>
+    @for (book of books; track book.identifier) {
+      <tr>
+        <td>
+          <img [src]="book.pictureLocation" class="mediaImage" />
+        </td>
+        <td>
+          {{ book.name }}
+        </td>
+        <td>
+          {{ book.genre }}
+        </td>
+        <td>
+          {{ book.description }}
+        </td>
+        <td>
+          {{ book.author }}
+        </td>
+        <td>
+          {{ book.numberOfPages }}
+        </td>
+        <td>
+          <button type="button" (click)="removeBook(book.identifier)">X</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<h3>Book Colletions!</h3>
+<cdk-accordion class="example-accordion">
+  @for (bookCollection of bookCollectionsSignal() | keyvalue; track bookCollection.value.identifier; let index = $index) {
+    <cdk-accordion-item
+      #accordionItem="cdkAccordionItem"
+      class="example-accordion-item"
+      role="button"
+      tabindex="0"
+      [attr.id]="'accordion-header-' + $index"
+      [attr.aria-expanded]="accordionItem.expanded"
+      [attr.aria-controls]="'accordion-body-' + $index"
+    >
+      <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+        {{ bookCollection.value.name }}
+        <span class="example-accordion-item-description"> Click to {{ accordionItem.expanded ? "close" : "open" }} </span>
+      </div>
+      <div
+        class="example-accordion-item-body"
+        role="region"
+        [style.display]="accordionItem.expanded ? '' : 'none'"
+        [attr.id]="'accordion-body-' + $index"
+        [attr.aria-labelledby]="'accordion-header-' + $index">        
+        <div class="containerGroup">
+          <div class="collectionToolsContainer">
+            <h3>Tools</h3>
+            <form action="#">
+              <button type="button" (click)="removeBookCollection(bookCollection.key)">Remove collection</button>
+            </form>
+          </div>
+        </div>
+        <div class="containerGroup">
+          <app-book-list
+            class="container"
+            (removedBook)="removeBook(bookCollection.key, $event)"
+            [books]="bookCollection.value.collection.slice(0)"
+          ></app-book-list>
+        </div>
+      </div>
+        
+    </cdk-accordion-item>
+  }
+</cdk-accordion>

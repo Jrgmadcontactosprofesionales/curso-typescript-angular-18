@@ -1,9 +1,10 @@
-<button type="button" (click)="toggleComponent()" [class]="prueba[0]" (buttonHovered)="onButtonHovered($event)">Toggle Component</button>
+<!--<button type="button" (click)="toggleComponent()" [class]="prueba[0]" (buttonHovered)="onButtonHovered($event)">Toggle Component</button>-->
 
 <!-- TODO: refactorizar directiva appIfViewport para poder definir varios viewports y no solo uno -->
 <!--
 <div *appIfViewport="['Medium', 'Large']; else: noComponent"></div>
 -->
+<!--
 <div *appIfViewport="'Medium'; else noComponent">
   <p>Showing content only when the viewport matches</p>
 </div>
@@ -12,32 +13,7 @@
   <div>no component to show in this viewport</div>
 </ng-template>
 
-@if (showComponent) {
-  <!--  <app-new-media-collection [inputName]="prueba" (reloadClicked)="onCollectionReload($event)"></app-new-media-collection>-->
-  <app-new-book></app-new-book>
-} @else {
-  <div>no component to show</div>
-}
+<app-books-page></app-books-page>
+-->
 
-<h2>Pipes built-in de Angular</h2>
-
-<p> Formatted text: "{{ someText | formatText: "upper-first" }}" </p>
-<p> Another formatted text: "{{ someText | lowercase }}" </p>
-<p> Another formatted text: "{{ someText | uppercase }}" </p>
-<p> and date {{ currentDate | date: "MMMM dd, yyyy hh:mm a" : undefined : "es-ES" | titlecase }} </p>
-<p> and price {{ 250.46 | currency: "EUR" : "symbol" : "1.1-1" : "es-ES" }} with {{ discount | percent: "1.1-1" : "es-ES" }} discount </p>
-<p> Current timestamp in minutes: {{ currentTimeInMinutes | number: "1.1-4" : "es-ES" }} </p>
-<p> JSON object: {{ jsonObject | json }} </p>
-<p> Slicing an array: {{ animals | slice: 0 : 4 }} </p>
-<p>
-  Display object key-values:
-  @let keyValuePairs = jsonObject | keyvalue;
-  @for (item of keyValuePairs; track $index) {
-    <div>{{ item.key }}:{{ item.value | json }}</div>
-  }
-</p>
-<p>
-  <ng-container *ngFor="let item of keyValuePairs; trackBy: trackByFn">
-    <div>{{ item.key }}:{{ item.value | json }}</div>
-  </ng-container>
-</p>
+<router-outlet></router-outlet>

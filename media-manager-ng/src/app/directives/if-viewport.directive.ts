@@ -29,7 +29,7 @@ export class IfViewportDirective implements OnInit {
     ]).subscribe((breakpointChanges) => {
       // console.warn('Viewport change detected!', breakpoints);
       const watchedBreakpoint = Breakpoints[this.viewport];
-      console.log(`Watching viewport ${watchedBreakpoint}`, breakpointChanges.breakpoints);
+      //console.log(`Watching viewport ${watchedBreakpoint}`, breakpointChanges.breakpoints);
 
       const breakpoints = breakpointChanges.breakpoints;
 

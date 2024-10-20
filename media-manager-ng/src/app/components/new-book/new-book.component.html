@@ -3,6 +3,13 @@
 <form [formGroup]="myForm" novalidate>
   <ul>
     <li>
+      <select [formControl]="myForm.controls.collection">
+        @for (bookCollection of bookCollectionsSignal() | keyvalue; track bookCollection.value.identifier) {
+          <option [value]="bookCollection.value.identifier">{{ bookCollection.value.name }}</option>
+        }
+      </select>
+    </li>
+    <li>
       <input [formControl]="myForm.controls.name" type="text" placeholder="Name" />
       <input [formControl]="myForm.controls.author" type="text" placeholder="Author" />
     </li>

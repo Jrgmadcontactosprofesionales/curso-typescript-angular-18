@@ -3,6 +3,13 @@
   <form id="newBookCollection" action="#">
     <input id="newBookCollectionName" type="text" name="collection-name" title="Name" placeholder="Name" [formControl]="collectionName" />
     <button type="button" (click)="createBookCollection()" [disabled]="collectionName.invalid">Create</button>
+    @if (collectionName.invalid && (collectionName.dirty || collectionName.touched)) {
+      <div class="alert alert-danger">
+        @if (collectionName.hasError("required")) {
+          <span>The name is required.</span>
+        }
+      </div>
+    }
     <p>
       <span>The new collection will be named: {{ collectionName.value | formatText: "upper-first" }}</span>
     </p>
